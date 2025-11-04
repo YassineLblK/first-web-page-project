@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="web.css">
+    <title>Login</title>
+</head>
+<body>
+    <header id="header" hidden>
+        <div>
+            <button>Home</button>
+            <button>About</button>
+            <button>Projects</button>
+            <button>Contacts</button>
+        </div>
+    </header>
+    <main>
+        <div id="login">
+            <legend><h1 style="font-size: 60px;">Login</h1></legend>
+                <input type="email" id="email" placeholder="e-mail"><br><br>
+                <input type="password" id="password" placeholder="password">
+            <br>
+            <p id="isCorrect"></p>
+            <button type="submit" id="buttonLogin" onclick="login()">Login</button>
+        </div>
+        <div id="signUp" hidden>
+            <legend><h1 style="font-size: 60px;">Sign Up</h1></legend>
+                <input type="text" id="Fname" class="champ" placeholder="First name"><br><br>
+                <input type="text" id="Lname" class="champ" placeholder="Last name"><br><br>
+                <input type="number" id="age" class="champ" placeholder="Age"><br><br>
+                <input type="email" id="mail" class="champ" placeholder="e-mail"><br><br>
+                <input type="password" id="pass" class="champ" placeholder="password"><br><br>
+                <input type="password" id="cpass" class="champ" placeholder="confirm">
+            <br><br>
+            <button type="submit" onclick="">Sign Up</button>
+        </div>
+        <br>
+    
+        <div id="para">
+            <p><span id="msg">Don't have an account yet?</span>
+                <a href="#" id="CreateAccount" style="color:rgb(17, 42, 231);" onclick="SignUp_LogIn()">  Sign Up</a>
+                <a href="#" id="HaveOne" style="color: rgb(17, 42, 231);" onclick="SignUp_LogIn()" hidden> Log in</a>
+            </p>
+            <p style="padding-left: 45px;" id="ForgotPass">Forgot Password?</p>
+        </div>
+        
+        <div id="para1" hidden>
+            <!--say WELCOME if have an account-->
+        </div>
+
+        <br>
+
+        <div class="welcome" id="welcome">
+            <h1>WELCOME BACK!</h1>
+            <p>
+                Get ready to try a new experience full of excitement and discovery.
+            </p>
+            <button id="menu" onclick="Afficher_Menue()">&equiv;</button>
+        </div>
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <hr>
+    <footer>
+        <p>2025 &copy;  all rights are reserved</p>
+        <p>Yassine LEBLAK</p>
+        <button id="mode" onclick="Mode()">On</button>
+    </footer>
+
+        <script>
+
+        let names = {
+            "yassine@gmail.com":"Yassine LEBLAK",
+            "lblk@gmail.com" : "Mohammed LEBLAK",
+            "anas@gmail.com" : "Anas LEBLAK",
+            "joyboy1999luffy@gmail.com":"Aimrane LEBLAK"
+        };
+
+        let data = {
+            "yassine@gmail.com" : "22222222",
+            "lblk@gmail.com" : "00000000",
+            "anas@gmail.com" : "33333333",
+            "joyboy1999luffy@gmail.com":"11111111"
+        };
+
+
+        function login() {
+
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            if (!email || !password) {
+                alert("Vous avez laissé un champ vide!")
+                return 0;
+            } else {
+                for (const key in data) {
+                    if (key===email) {
+                        if (data[key]===password) {
+
+                            document.getElementById("login").setAttribute("hidden", '');
+                            document.getElementById("para").setAttribute("hidden", '');
+                            document.getElementById("para1").removeAttribute("hidden");
+
+                            document.getElementById("para1").innerHTML="HI "+names[key] + ", WELCOME to your account";
+                            return 0;
+                        } else {
+        
+                            document.getElementById("para1").setAttribute("hidden");
+
+                            document.getElementById("isCorrect").innerHTML="Sorry, invalid password.<br>try again ...";
+                            return 0;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        function SignUp_LogIn(){
+            // Sign Up
+           if (document.getElementById("signUp").hasAttribute("hidden")){
+
+                document.getElementById("signUp").removeAttribute("hidden");
+                document.getElementById("login").setAttribute("hidden", '');
+
+                document.getElementById("CreateAccount").setAttribute("hidden", '');
+                document.getElementById("HaveOne").removeAttribute("hidden");
+
+                document.getElementById("ForgotPass").setAttribute("hidden", '');
+                document.getElementById("msg").innerHTML = "Have already an account?";
+
+                document.getElementById("signUp").style.left = "585px";
+                document.getElementById("signUp").style.transition = "all 1s ease";
+
+                document.getElementById("para").style.left = "700px";
+                document.getElementById("para").style.transition = "all 1s ease";
+
+                document.getElementById("welcome").style.left = "0px";
+                document.getElementById("welcome").style.transition = "all 0.5s ease";
+
+                document.getElementById("login").style.left = "700px";
+            // Log in
+            }else{
+                document.getElementById("signUp").style.left = "50px";
+
+                document.getElementById("signUp").setAttribute("hidden", '');
+                document.getElementById("login").removeAttribute("hidden");
+
+                document.getElementById("HaveOne").setAttribute("hidden", '');
+                document.getElementById("CreateAccount").removeAttribute("hidden");
+
+                document.getElementById("msg").innerHTML = "Don't have an account yet?";
+                document.getElementById("ForgotPass").removeAttribute("hidden");
+
+                document.getElementById("login").style.left = "50px";
+                document.getElementById("login").style.transition = "all 0.5s ease";
+
+                document.getElementById("para").style.left = "200px";
+                document.getElementById("para").style.transition = "all 1s ease";
+
+                document.getElementById("welcome").style.left = "700px";
+                document.getElementById("welcome").style.transition = "all 0.5s ease";
+            } 
+        }
+        
+        
+
+        function Afficher_Menue(){
+
+            var menu = document.getElementById("header");
+
+            if (menu.hasAttribute("hidden")){
+                menu.removeAttribute("hidden");
+            }else{
+                menu.setAttribute("hidden", '');
+            }
+        }
+        
+        
+        function Mode() {
+
+            var mode = document.getElementById("mode");
+
+            if (mode.innerHTML==="On") {
+                mode.innerHTML = "Off";
+                document.body.style.background = "linear-gradient(to top, white, rgb(5, 27, 190))";
+            } else {
+                mode.innerHTML = "On";
+                document.body.style.background = "linear-gradient(to bottom, black, rgb(5, 27, 190))";
+            }
+        }
+    </script>
+</body>
+</html>

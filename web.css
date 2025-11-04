@@ -1,0 +1,166 @@
+:root {
+    --background-color: linear-gradient(to bottom, black, rgb(5, 27, 190));
+    --button-background-color: linear-gradient(to top, black, rgb(5, 27, 190));
+}
+
+* {
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    color: white;
+}
+body {
+    background: var(--background-color);
+}
+
+/*Header*/
+header{
+    position: fixed;
+    top: 0px;
+    background: #163cd2;
+    width: 1200px;
+    height: 80px;
+    border-radius: 5px;
+    border-bottom: 5px ridge #063a84;
+    z-index: 1;
+}
+header>div {
+    position: relative;
+    top: 0px;
+}
+header>div>button:hover {
+    border-radius: 2px;
+    width: 100px;
+    height: 40px;
+    border-bottom: 3px solid black;
+    transition: all 0.3s ease-in-out;
+    background: #072391;
+}
+header>div>button {
+    background:transparent;
+    border-radius: 0px;
+    border-top: 0px hidden;
+    border-right: 0px hidden;
+    border-bottom: 0px hidden;
+    border-left: 0px hidden;
+}
+
+/*bloc de log our sign UP*/
+#signUp, #login {
+    position: relative;
+    top: 100px;
+    left: 50px;
+    justify-content: space-between;
+    padding: 30px;
+    width: 550px;
+    border: 1.5px ridge rgba(21, 38, 234, 0.797);
+    border-radius: 5px;
+    background-color: black;
+    box-shadow: -2px -4px 4px rgb(5, 27, 190);
+}
+
+/*ALL INPUT*/
+input {
+    background-color:transparent;
+    width: 250px;
+    height: 50px;
+    border-radius: 10px;
+    border:3px hidden #0b50b0;
+    box-shadow: 1px 1px 10px #163cd2;
+    opacity: 0.7;
+    cursor:pointer;
+    transition: all 0.2s ease-in-out;
+}
+input:hover{
+    background-color: hsla(211, 83%, 31%, 0.484);
+    opacity: 1;
+    width: 250px;
+    height: 55px;
+    border-radius: 10px;
+    box-shadow: 0px 20px 20px #0c35d8ac;
+}
+input:focus{
+    background-color: black;
+    box-shadow: #e8e8e8;
+    width: 300px;
+    height: 70px;
+}
+
+/*INPUT OF SIGN UP*/
+.champ {
+    transition: 0.5s ease;
+}
+.champ:focus{
+    transform: scale(1.1); 
+}
+
+/*BUTTON*/
+button {
+    position: relative;
+    left: 400px;
+    width: 100px;
+    height: 40px;
+    border: 1px ridge rgb(5, 27, 190);
+    border-radius: 20px;
+    background: var(--button-background-color);
+    cursor: pointer;
+}
+
+button:hover {
+    width: 120px;
+    height: 50px;
+    border-radius: 30px;
+    transition:all 0.3s ease-in-out;
+}
+
+/*when login*/
+#para1{
+    font-family: 'Times New Roman', Times, sans-serif;
+    font-size: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    color: beige;
+}
+
+/*PARAGRAPH : WELCOME ...*/
+.welcome {
+    position: absolute;
+    top: 150px;
+    left: 700px;
+}
+.welcome>h1 {
+    font-size: 40px;
+    padding-left: 80px;
+}
+.welcome>button {
+    position: fixed;
+    top: 20px;
+    left: 1130px;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+}
+.welcome>button:hover {
+    width: 60px;
+    height: 60px;
+    transform: scale(1.1);
+}
+
+
+/*para about account*/
+#para {
+    position: relative;
+    top: 100px;
+    left: 200px;
+}
+
+#isCorrect {
+    color: red;
+}
+
+
+/*FOOTER : BAS DE PAGE*/
+footer{
+    text-align: center;
+}
